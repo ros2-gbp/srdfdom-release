@@ -95,7 +95,7 @@ public:
     /// be added to the group. Each chain is specified as a
     /// pair of base link and tip link. It is checked that the
     /// chain is indeed a chain in the specified URDF.
-    std::vector<std::pair<std::string, std::string> > chains_;
+    std::vector<std::pair<std::string, std::string>> chains_;
 
     /// It is sometimes convenient to refer to the content of
     /// another group. A group can include the content of the
@@ -150,7 +150,7 @@ public:
 
     /// The values of joints for this state. Each joint can have a value. We use a vector for the 'value' to support
     /// multi-DOF joints
-    std::map<std::string, std::vector<double> > joint_values_;
+    std::map<std::string, std::vector<double>> joint_values_;
   };
 
   /// The definition of a sphere
@@ -195,6 +195,19 @@ public:
     std::string name_;
   };
 
+  // Some joints may have additional properties.
+  struct JointProperty
+  {
+    /// The name of the joint that this property belongs to
+    std::string joint_name_;
+
+    /// The name of the property
+    std::string property_name_;
+
+    /// The value of the property. Type not specified.
+    std::string value_;
+  };
+
   /// Get the name of this model
   const std::string& getName() const
   {
@@ -209,7 +222,7 @@ public:
   }
 
   /// \deprecated{ Use the version returning DisabledCollision }
-  [[deprecated]] std::vector<std::pair<std::string, std::string> > getDisabledCollisions() const;
+  [[deprecated]] std::vector<std::pair<std::string, std::string>> getDisabledCollisions() const;
 
   /// Get the list of groups defined for this model
   const std::vector<Group>& getGroups() const
@@ -247,10 +260,31 @@ public:
     return link_sphere_approximations_;
   }
 
+  /// Get the joint properties for a particular joint (empty vector if none)
+  const std::vector<JointProperty>& getJointProperties(const std::string& joint_name) const
+  {
+    std::map<std::string, std::vector<JointProperty>>::const_iterator iter = joint_properties_.find(joint_name);
+    if (iter == joint_properties_.end())
+    {
+      // We return a standard empty vector here rather than insert a new empty vector
+      // into the map in order to keep the method const
+      return empty_vector_;
+    }
+    return iter->second;
+  }
+
+  /// Get the joint properties list
+  const std::map<std::string, std::vector<JointProperty>>& getJointProperties() const
+  {
+    return joint_properties_;
+  }
+
   /// Clear the model
   void clear();
 
 private:
+  bool isValidJoint(const urdf::ModelInterface& urdf_model, const std::string& name) const;
+
   void loadVirtualJoints(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
   void loadGroups(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
   void loadGroupStates(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
@@ -258,6 +292,7 @@ private:
   void loadLinkSphereApproximations(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
   void loadDisabledCollisions(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
   void loadPassiveJoints(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
+  void loadJointProperties(const urdf::ModelInterface& urdf_model, tinyxml2::XMLElement* robot_xml);
 
   std::string name_;
   std::vector<Group> groups_;
@@ -267,6 +302,10 @@ private:
   std::vector<LinkSpheres> link_sphere_approximations_;
   std::vector<DisabledCollision> disabled_collisions_;
   std::vector<PassiveJoint> passive_joints_;
+  std::map<std::string, std::vector<JointProperty>> joint_properties_;
+
+  // Empty joint property vector
+  static const std::vector<JointProperty> empty_vector_;
 };
 typedef std::shared_ptr<Model> ModelSharedPtr;
 typedef std::shared_ptr<const Model> ModelConstSharedPtr;
