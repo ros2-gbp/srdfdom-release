@@ -2,6 +2,14 @@
 Changelog for package srdfdom
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.3 (2021-09-27)
+------------------
+* Use modern cmake (`#96 <https://github.com/ros-planning/srdfdom/issues/96>`_)
+* Fix unit tests & setup.py file (`#94 <https://github.com/ros-planning/srdfdom/issues/94>`_)
+* Fix use of tinyxml2_vendor (`#95 <https://github.com/ros-planning/srdfdom/issues/95>`_)
+* Fixes for usage on windows (`#91 <https://github.com/ros-planning/srdfdom/issues/91>`_)
+* Contributors: Akash, Jafar Abdi, Vatan Aksoy Tezer
+
 2.0.2 (2021-05-24)
 ------------------
 * Support rolling CI (`#85 <https://github.com/ros-planning/srdfdom/issues/85>`_)
