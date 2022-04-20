@@ -77,7 +77,8 @@ tracks:
     ros_distro: humble
     vcs_type: git
     vcs_uri: https://github.com/ros-planning/srdfdom.git
-    version: :{ask}
+    version: 2.0.3
+    version_saved: :{ask}
   rolling:
     actions:
     - bloom-export-upstream :{vcs_local_uri} :{vcs_type} --tag :{release_tag} --display-uri
