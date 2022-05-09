@@ -1,3 +1,26 @@
+## srdfdom (rolling) - 2.0.4-1
+
+The packages in the `srdfdom` repository were released into the `rolling` distro by running `/home/jafar/.local/bin/bloom-release srdfdom -t rolling -r rolling --override-release-repository-url https://github.com/ros2-gbp/srdfdom-release.git` on `Mon, 09 May 2022 09:04:23 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+
+- upstream repository: https://github.com/ros-planning/srdfdom.git
+- release repository: https://github.com/ros2-gbp/srdfdom-release.git
+- rosdistro version: `2.0.3-2`
+- old version: `2.0.3-2`
+- new version: `2.0.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.1`
+- catkin_pkg version: `0.4.24`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## srdfdom (rolling) - 2.0.3-1
 
 The packages in the `srdfdom` repository were released into the `rolling` distro by running `/usr/bin/bloom-release srdfdom -t rolling -r rolling` on `Mon, 27 Sep 2021 19:46:51 -0000`
