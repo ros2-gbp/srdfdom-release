@@ -1,0 +1,12 @@
+Source: ros-humble-srdfdom
+Section: misc
+Priority: optional
+Maintainer: MoveIt Release Team <moveit_releasers@googlegroups.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-dev, libconsole-bridge-dev, ros-humble-ament-cmake, ros-humble-ament-cmake-gtest <!nocheck>, ros-humble-ament-cmake-pytest <!nocheck>, ros-humble-ament-cmake-python, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-cmake <!nocheck>, ros-humble-console-bridge-vendor, ros-humble-tinyxml2-vendor, ros-humble-urdf, ros-humble-urdfdom-headers, ros-humble-ros-workspace
+Homepage: http://ros.org/wiki/srdfdom
+Standards-Version: 3.9.2
+
+Package: ros-humble-srdfdom
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libconsole-bridge-dev, ros-humble-console-bridge-vendor, ros-humble-tinyxml2-vendor, ros-humble-urdf, ros-humble-urdfdom-py, ros-humble-ros-workspace
+Description: Parser for Semantic Robot Description Format (SRDF).
