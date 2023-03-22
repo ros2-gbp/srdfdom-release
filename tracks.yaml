@@ -103,5 +103,4 @@ tracks:
     ros_distro: rolling
     vcs_type: git
     vcs_uri: https://github.com/ros-planning/srdfdom.git
-    version: 2.0.4
-    version_saved: :{ask}
+    version: :{ask}
