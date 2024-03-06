@@ -1,0 +1,12 @@
+Source: ros-rolling-srdfdom
+Section: misc
+Priority: optional
+Maintainer: MoveIt Release Team <moveit_releasers@googlegroups.com>
+Build-Depends: debhelper (>= 9.0.0), ament-cmake, ament-cmake-googletest <!nocheck>, ament-cmake-pytest <!nocheck>, ament-cmake-python, ament-lint <!nocheck>, libboost-dev, libconsole-bridge-dev, librosconsole-bridge-dev, liburdf-dev, liburdfdom-headers-dev, ros-rolling-ament-lint-cmake <!nocheck>, ros-rolling-tinyxml2-vendor, ros-rolling-ros-workspace
+Homepage: http://ros.org/wiki/srdfdom
+Standards-Version: 3.9.2
+
+Package: ros-rolling-srdfdom
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libconsole-bridge-dev, librosconsole-bridge-dev, liburdf-dev, ros-rolling-tinyxml2-vendor, ros-rolling-urdfdom-py, ros-rolling-ros-workspace
+Description: Parser for Semantic Robot Description Format (SRDF).
