@@ -27,10 +27,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-           $<INSTALL_INTERFACE:include>)
+           $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+target_link_libraries(${PROJECT_NAME} PUBLIC tinyxml2::tinyxml2)
+
 # Ament dependencies
 ament_target_dependencies(${PROJECT_NAME} PUBLIC
-  TinyXML2
   console_bridge
   urdf
   urdfdom_headers
@@ -42,9 +43,8 @@ install(TARGETS ${PROJECT_NAME}
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
-install(DIRECTORY include/${PROJECT_NAME}/
+install(DIRECTORY include/
   DESTINATION include/${PROJECT_NAME}
-  FILES_MATCHING PATTERN "*.h"
 )
 
 install(PROGRAMS
