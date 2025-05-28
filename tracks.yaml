@@ -180,5 +180,5 @@ tracks:
     release_tag: :{version}
     ros_distro: rolling
     vcs_type: git
-    vcs_uri: https://github.com/ros-planning/srdfdom.git
+    vcs_uri: https://github.com/moveit/srdfdom.git
     version: :{auto}
