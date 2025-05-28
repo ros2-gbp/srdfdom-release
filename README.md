@@ -1,3 +1,26 @@
+## srdfdom (kilted) - 2.0.8-1
+
+The packages in the `srdfdom` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --ros-distro kilted srdfdom -e` on `Wed, 28 May 2025 07:00:58 -0000`
+
+The `srdfdom` package was released.
+
+Version of package(s) in repository `srdfdom`:
+
+- upstream repository: https://github.com/moveit/srdfdom.git
+- release repository: https://github.com/ros2-gbp/srdfdom-release.git
+- rosdistro version: `2.0.7-2`
+- old version: `2.0.7-2`
+- new version: `2.0.8-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## srdfdom (humble) - 2.0.7-1
 
 The packages in the `srdfdom` repository were released into the `humble` distro by running `/usr/bin/bloom-release --edit --rosdistro humble srdfdom` on `Fri, 24 Jan 2025 03:56:29 -0000`
